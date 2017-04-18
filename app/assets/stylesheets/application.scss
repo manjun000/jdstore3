@@ -17,3 +17,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.background{
+  background-color: #F6F6F6;
+}
+
+
+.footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
