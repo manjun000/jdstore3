@@ -9,15 +9,28 @@
            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
          <% end %>
       <% end %>
+
       <%=link_to(product.title, product_path(product))%>
       <br />
-    ￥ <%=link_to(product.price, product_path(product))%>
+      ￥ <%=link_to(product.price, product_path(product))%>
+
       <% if product.quantity.present? && product.quantity > 0 %>
         <i class="fa fa-shopping-cart"></i>
         <%=link_to("加入购物车", add_to_cart_product_path(product), method: :post, class:"btn btn-lg")%>
       <%else%>
         已销售一空，无法购买
       <%end%>
+
+       <%if current_user && current_user.has_been_favourited?(product) %>
+         <button class="btn btn-default"><span class="fa fa-heart"></span>
+            <%= link_to("Unfavor", unfavourite_product_path(product), method: :post) %>
+         </button>
+       <% else %>
+         <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
+           <%=link_to("favor", favourite_product_path(product), method: :post)%>
+         </button>
+       <% end %>
+
     </div>
   <% end %>
 </div>

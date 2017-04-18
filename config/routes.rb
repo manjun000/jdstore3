@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post :add_to_cart
+      post :favourite
+      post :unfavourite
     end
   end
 
@@ -40,5 +42,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :orders
   end
+
+  resources :favourites
 
 end
