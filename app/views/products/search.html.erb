@@ -1,0 +1,16 @@
+<%#= render :partial => "products/search_bar"%>
+
+<br />
+
+<div class="search-result">
+  <table class="table table-border">
+    <% @products.each do |product|%>
+      <%=link_to(product.title , product_path(product))%>
+      <hr />
+    <%end%>
+  </table>
+</div>
+
+<div class="text-center">
+     <%= will_paginate @products %>
+  </div>

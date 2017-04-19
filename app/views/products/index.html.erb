@@ -1,5 +1,7 @@
 <div class="row">
 
+  <%= render :partial => "products/search_bar"%>
+
   <% @products.each do |product|%>
     <div class="pr-div1 col-xs-6 col-md-3">
       <%= link_to product_path(product) do %>

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       post :favourite
       post :unfavourite
     end
+    collection do
+      get :search
+    end
   end
 
   resources :carts do
